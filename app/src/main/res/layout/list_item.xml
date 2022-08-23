@@ -1,19 +1,18 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:weightSum="10"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="90dp"
     android:orientation="vertical"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent">
 
     <LinearLayout
-        android:id="@+id/list_view"
+        android:id="@+id/layout_list_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="12dp">
 
         <LinearLayout
             android:id="@+id/list_view_content"
@@ -26,23 +25,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="길고양이를 학대하는 갤러리를 폐쇄하고........."
-                android:fontFamily="@font/nanumsquareroundb"
+                android:fontFamily="@font/nanumsquareroundr"
                 android:textColor="@color/black"
-                android:textSize="20sp" >
+                android:textSize="17sp" >
             </TextView>
 
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/help_list_title_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            android:text="청원내용"
-            android:textColor="@color/black"
-            android:textSize="16dp">
-        </TextView>
+<!--        <TextView-->
+<!--            android:id="@+id/list_content_tv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="13dp"-->
+<!--            android:text="청원내용"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="15dp">-->
+<!--        </TextView>-->
 
        <LinearLayout
            android:id="@+id/list_view_like"
@@ -55,7 +54,7 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:orientation="vertical"
-               android:layout_marginTop="2dp">
+               android:layout_marginTop="5dp">
 
                <TextView
                    android:id="@+id/list_writer_tv"
@@ -151,12 +150,12 @@
 
        </LinearLayout>
 
-        <View
-            android:id="@+id/login_tv2_underscore_view"
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:layout_marginTop="8sp"
-            android:background="@color/list_font" />
+<!--        <View-->
+<!--            android:id="@+id/login_tv2_underscore_view"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="2px"-->
+<!--            android:layout_marginTop="8sp"-->
+<!--            android:background="@color/list_font" />-->
 
     </LinearLayout>
 
