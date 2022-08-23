@@ -10,6 +10,6 @@
     <color name="main_blue">#00b4cb</color>
     <color name="btn_backBlue">#cdf0f6</color>
     <color name="back_Gray">#f1f1f1</color>
-    <color name="list_font">#6A6A6A</color>
-
+    <color name="btn_back">#dbf6f9</color>
+    <color name="list_font">#5e5e5e</color>
 </resources>
