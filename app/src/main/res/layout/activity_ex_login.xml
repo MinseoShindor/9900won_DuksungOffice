@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ExLoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_blue"
+        android:orientation="vertical" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/splash_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/Ex_login_Btn"
+        android:layout_width="180sp"
+        android:layout_height="40sp"
+        android:layout_marginBottom="290sp"
+        android:background="@drawable/btn_login_blue"
+        android:text="Login"
+        android:textSize="17dp"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/nanumsquareroundeb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/Ex_login_tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="덕성사서함이 처음인가요?"
+        android:layout_marginTop="110sp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:fontFamily="@font/nanumsquareroundr"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Ex_login_Btn" />
+
+    <View
+        android:id="@+id/login_tv1_underscore_view"
+        android:layout_width="170sp"
+        android:layout_height="2px"
+        android:layout_marginTop="7sp"
+        android:background="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Ex_login_tv1"/>
+
+    <TextView
+        android:id="@+id/Ex_login_tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원가입"
+        android:layout_marginTop="10sp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:fontFamily="@font/nanumsquareroundr"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_tv1_underscore_view" />
+
+    <View
+        android:id="@+id/login_tv2_underscore_view"
+        android:layout_width="90sp"
+        android:layout_height="2px"
+        android:layout_marginTop="7sp"
+        android:background="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Ex_login_tv2"/>
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
