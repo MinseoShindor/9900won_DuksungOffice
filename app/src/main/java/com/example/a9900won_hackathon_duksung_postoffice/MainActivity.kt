@@ -1,6 +1,6 @@
 package com.example.a9900won_hackathon_duksung_postoffice
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 class MainActivity : AppCompatActivity() {
