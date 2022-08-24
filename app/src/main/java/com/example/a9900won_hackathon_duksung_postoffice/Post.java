@@ -19,6 +19,7 @@ public class Post {
     int postScrapCount = 0; // 스크랩 수
     int postReplyCount = 0; // 답글 수
 
+
     // 게시글 작성 처리 (이미지 X)
     public Post (String postWriterName, String postType, String postTitle, String postContent, Boolean postHasPhoto, String postTopic, Boolean postIsAnonymity) {
         this.postWriterName = postWriterName;
@@ -50,12 +51,6 @@ public class Post {
         this.postTime = getTime();
     }
 
-    // 작성 후 처리
-    public Post (int postLikeCount, int postScrapCount, int postReplyCount) {
-        this.postLikeCount = postLikeCount;
-        this.postScrapCount = postScrapCount;
-        this.postReplyCount = postReplyCount;
-    }
 
     // 현재 시간을 "yyyy-MM-dd hh:mm:ss"로 표시하는 메소드
     public String getTime() {

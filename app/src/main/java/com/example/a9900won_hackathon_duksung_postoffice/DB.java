@@ -73,6 +73,7 @@ public class DB extends AppCompatActivity {
         buttonJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 회원가입 처리
                 if (!editTextEmail.getText().toString().equals("") && !editTextPassword.getText().toString().equals("")) {
                     // 이메일과 비밀번호가 공백이 아닌 경우
                     String modifyText = editTextEmail.getText().toString() + "@example.com";
@@ -86,8 +87,7 @@ public class DB extends AppCompatActivity {
                     }
 
                     if (numCheck) {
-                        addUser("20180433", "허희원", "아미공", "뿡");
-                        // addUser(editTextID.getText().toString(), editTextName.getText().toString(), editTextMajor.getText().toString(), firebaseAuth.getUid());
+                        addUser(editTextID.getText().toString(), editTextName.getText().toString(), editTextMajor.getText().toString(), firebaseAuth.getUid());
 
                     } else {
                         Toast.makeText(DB.this, "학교 이메일 인증을 해주세요.", Toast.LENGTH_LONG).show();
@@ -101,6 +101,7 @@ public class DB extends AppCompatActivity {
 
         buttonJoin2 = (Button) findViewById(R.id.btn_join2);
         buttonJoin2.setOnClickListener(new View.OnClickListener() {
+            // 이메일 인증 처리
             @Override
             public void onClick(View v) {
                 GMailSender sender = new GMailSender("id@gmail.com", "storm200");
@@ -125,23 +126,9 @@ public class DB extends AppCompatActivity {
 
         buttonJoin3 = (Button) findViewById(R.id.btn_join3);
         buttonJoin3.setOnClickListener(new View.OnClickListener() {
+            // 이메일 인증 확인 처리
             @Override
             public void onClick(View v) {
-                addUser("20180433", "허희원", "아미공", "뿡");
-
-                databaseReference.child("20180433").child("info").child("name").addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        String value = dataSnapshot.getValue(String.class);
-                        Toast.makeText(DB.this, value, Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        //Log.e("MainActivity", String.valueOf(databaseError.toException())); // 에러문 출력
-                    }
-                });
-
                 /*
                 if (editTextName.getText().toString().equals(nums)) {
                     Toast.makeText(MainActivity.this, "인증되었습니다.", Toast.LENGTH_LONG).show();
@@ -173,10 +160,9 @@ public class DB extends AppCompatActivity {
                             while (!imageUrl.isComplete()) ;
                         }
                     });
-                } else {
+                } else { }
 
-                }
-                */
+                 */
 
                 // postWriterName, postType, postTitle, postContent, postHasPhoto, postUID, postIsAnonymity
                 // writePost("허희원", "A = 분야", "안녕하세요", "되새겨보아요.", false, "이건 내 글이야", false);
@@ -186,9 +172,9 @@ public class DB extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
                             String key = postSnapshot.getKey();
-                            String value = postSnapshot.child("postType").getValue(String.class);
-                            int num = postSnapshot.child("postLikeCount").getValue(Integer.class);
-                            int date = postSnapshot.child("postTime").getValue(Integer.class);
+                            String value = postSnapshot.child("postType").getValue(String.class); // 분야
+                            int num = postSnapshot.child("postLikeCount").getValue(Integer.class); // 추천
+                            int date = postSnapshot.child("postTime").getValue(Integer.class); // 최신
 
                             /* 분야별 불러오기
                             if (value.equals("글로벌융합대학")) {
@@ -225,6 +211,7 @@ public class DB extends AppCompatActivity {
                     }
                 });
 
+                /*
                 databaseReference.child("Post").child("이건 내 글이야").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -239,6 +226,42 @@ public class DB extends AppCompatActivity {
                                 Toast.makeText(DB.this, text, Toast.LENGTH_LONG).show();
                             }
 
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) { }
+                });
+
+                // 공감, 스크랩 눌렸을 경우
+                if (공감 버튼) {
+                    addCount("해당 게시글 고유 토픽", "postLikeCount");
+                } else if (스크랩 버튼) {
+                    addCount("해당 게시글 고유 토픽", "postScrapCount");
+                }
+                */
+
+                // 답글 글쓰기
+                databaseReference.child("User").child(firebaseAuth.getUid()).child("name").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String value = snapshot.getValue(String.class);
+                        // writeReply(리스트뷰에 조회되고 있는 게시글 토픽, value, editContent.getText().toString(), 익명 유무);
+                        // addCount("리스트뷰에 조회되고 있는 게시글 토픽", postReplyCount);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) { }
+                });
+
+                // 답글 조회하기
+                databaseReference.child("Reply").child("리스트뷰에 조회되고 있는 게시글 토픽").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                            String key = postSnapshot.getKey();
+                            String value = postSnapshot.child(key).child("replyWriterName").getValue(String.class);
+                            // replyContent, replyTime
                         }
                     }
 
@@ -288,8 +311,7 @@ public class DB extends AppCompatActivity {
 
     private void addUser(String id, String name, String major, String uid) {
         User user = new User (id, name, major, uid);
-
-        databaseReference.child("User").child(id).child("UserInfo").setValue(user);
+        databaseReference.child("User").child(uid).setValue(user);
     }
 
 
@@ -304,6 +326,28 @@ public class DB extends AppCompatActivity {
         databaseReference.child("Post").push(); // postTopic 자동 생성 함수
         Post post = new Post (postWriterName, postType, postTitle, postContent, postHasPhoto, postPhotoName, databaseReference.child("Post").getKey(), postIsAnonymity);
         databaseReference.child("Post").child(databaseReference.child("Post").getKey()).setValue(post);
+    }
+
+
+    private void writeReply (String postWithReplyTopic, String replyWriterName, String replyContent, Boolean replyIsAnonymity) {
+        databaseReference.child("Reply").push(); // replyTopic 자동 생성 함수
+        Reply reply = new Reply (postWithReplyTopic, replyWriterName, replyContent, databaseReference.child("Reply").getKey(),false);
+        databaseReference.child("Reply").child(postWithReplyTopic).child(databaseReference.child("Reply").getKey()).setValue(reply);
+    }
+
+
+    private void addCount (String postTopic, String what) {
+        databaseReference.child("Post").child(postTopic).child(what).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int value = snapshot.getValue(Integer.class);
+                databaseReference.child("Post").child(postTopic).child(what).setValue(value + 1);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
     }
 
 
