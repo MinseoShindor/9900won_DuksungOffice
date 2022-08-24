@@ -17,7 +17,7 @@
         android:theme="@style/Theme.9900won_Hackathon_Duksung_PostOffice"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".DB"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
