@@ -2,8 +2,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="90dp"
+    android:layout_height="125dp"
     android:orientation="vertical"
+    android:background="@drawable/background_rectangle_write"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent">
 
@@ -21,10 +22,10 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/list_title_tv"
+                android:id="@+id/main_list_title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="길고양이를 학대하는 갤러리를 폐쇄하고........."
+                android:text="차관 2층에 있는 공대 실습실 컴퓨터 xx번 고장났습니다"
                 android:fontFamily="@font/nanumsquareroundr"
                 android:textColor="@color/black"
                 android:textSize="17sp" >
@@ -33,18 +34,18 @@
 
         </LinearLayout>
 
-<!--        <TextView-->
-<!--            android:id="@+id/list_content_tv"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="13dp"-->
-<!--            android:text="청원내용"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:textSize="15dp">-->
-<!--        </TextView>-->
+        <TextView
+            android:id="@+id/main_list_content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11sp"
+            android:text="시험을 봐야하는 상황에서 이렇게 기구 관리가 제대로 되어있지 않으면 많은 학생들이 손해를 볼 것 입니다 "
+            android:textSize="12sp"
+            android:fontFamily="@font/nanumsquareroundr"
+            android:textColor="@color/black" />
 
        <LinearLayout
-           android:id="@+id/list_view_like"
+           android:id="@+id/main_list_view_like"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:layout_gravity="center"
@@ -56,29 +57,6 @@
                android:orientation="vertical"
                android:layout_marginTop="5dp">
 
-               <TextView
-                   android:id="@+id/list_writer_tv"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="이현민"
-                   android:textColor="@color/list_font"
-                   android:textSize="13sp"
-                   android:layout_marginTop="3dp"
-                   android:layout_marginEnd="20dp"
-                   android:fontFamily="@font/nanumsquareroundb" />
-
-               <TextView
-                   android:id="@+id/list_date_tv"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="2022-08-23"
-                   android:textColor="@color/list_font"
-                   android:textSize="13sp"
-                   android:layout_gravity="center"
-                   android:layout_marginTop="4dp"
-                   android:layout_marginStart="7dp"
-                   android:layout_marginEnd="20dp"
-                   android:fontFamily="@font/nanumsquareroundb" />
 
            </LinearLayout>
 
@@ -87,35 +65,67 @@
                android:layout_height="0dp"
                android:layout_weight="1"/>
 
+
            <ImageView
-               android:id="@+id/list_photo_iv"
+               android:id="@+id/main_list_photo_iv"
                android:layout_width="20dp"
                android:layout_height="20dp"
                android:layout_marginTop="20dp"
                android:src="@drawable/ic_image_regular" />
 
            <TextView
-               android:id="@+id/list_photo_tv"
+               android:id="@+id/main_list_photo_tv"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="1"
-               android:textColor="@color/black"
+               android:textColor="#5e5e5e"
                android:textSize="15sp"
                android:layout_gravity="center"
                android:layout_marginTop="10dp"
                android:layout_marginStart="7dp"
-               android:layout_marginEnd="20dp"
+               android:layout_marginEnd="22dp"
                android:fontFamily="@font/nanumsquareroundb" />
 
+           <View
+               android:id="@+id/main_vertical_view2"
+               android:layout_width="2dp"
+               android:layout_height="20dp"
+               android:backgroundTint="#5e5e5e"
+               android:layout_marginTop="20sp"
+               android:layout_marginEnd="10dp"
+               android:background="@color/list_font" />
+
+
            <ImageView
-               android:id="@+id/list_thumbs_up_iv"
+               android:id="@+id/main_list_reply_iv"
+               android:layout_width="20dp"
+               android:layout_height="20dp"
+               android:src="@drawable/ic_arrow_down_short_wide_solid"
+               android:layout_marginTop="20dp" />
+
+           <TextView
+               android:id="@+id/main_list_replay_tv"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="5"
+               android:textColor="@color/black"
+               android:textSize="15sp"
+               android:layout_gravity="center"
+               android:layout_marginTop="10dp"
+               android:layout_marginStart="3dp"
+               android:layout_marginEnd="11dp"
+               android:fontFamily="@font/nanumsquareroundb" />
+
+
+           <ImageView
+               android:id="@+id/main_list_thumbs_up_iv"
                android:layout_width="20dp"
                android:layout_height="20dp"
                android:layout_marginTop="20dp"
                android:src="@drawable/ic_thumbs_up" />
 
            <TextView
-               android:id="@+id/list_thumbs_up_tv"
+               android:id="@+id/main_list_thumbs_up_tv"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="200"
@@ -129,14 +139,14 @@
 
 
            <ImageView
-               android:id="@+id/list_scrap_iv"
+               android:id="@+id/main_list_scrap_iv"
                android:layout_width="15dp"
                android:layout_height="20dp"
                android:layout_marginTop="20dp"
                android:src="@drawable/ic_bookmark_regular" />
 
            <TextView
-               android:id="@+id/list_scrap_tv"
+               android:id="@+id/main_list_scrap_tv"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="39"

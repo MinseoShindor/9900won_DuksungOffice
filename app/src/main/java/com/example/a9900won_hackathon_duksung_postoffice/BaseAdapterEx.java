@@ -45,7 +45,7 @@ public class BaseAdapterEx extends android.widget.BaseAdapter {
 
         if(itemLayout == null)
         {
-            itemLayout = mLayoutInflater.inflate(R.layout.list_item, null);
+            itemLayout = mLayoutInflater.inflate(R.layout.main_list_item, null);
 
             viewHolder = new ViewHolder();
 //
