@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "630737216290",
+    "firebase_url": "https://won-duksung-postoffice-default-rtdb.firebaseio.com",
+    "project_id": "won-duksung-postoffice",
+    "storage_bucket": "won-duksung-postoffice.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630737216290:android:52d41f104cfaa53bb43b7b",
+        "android_client_info": {
+          "package_name": "com.example.a9900won_hackathon_duksung_postoffice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "630737216290-canbneseeci7h3gi4a801j31uenph6ir.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.a9900won_hackathon_duksung_postoffice",
+            "certificate_hash": "51d99f756c7dba45d28cbd4d3fa05c928289b0cd"
+          }
+        },
+        {
+          "client_id": "630737216290-75oae38147a7lj2o7cl74c4t0sdusu69.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYHzxxThyWA6Gvst7q8FUrHXpHwH54akw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "630737216290-75oae38147a7lj2o7cl74c4t0sdusu69.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
