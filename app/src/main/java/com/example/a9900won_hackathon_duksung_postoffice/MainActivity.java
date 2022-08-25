@@ -1,28 +1,27 @@
 package com.example.a9900won_hackathon_duksung_postoffice;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
+
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
+import java.lang.invoke.MethodType;
 import java.util.ArrayList;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,9 +29,14 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
 
-    ListView mListView = null;
-    BaseAdapterEx mAdapter = null;
-    ArrayList<List> mData = null;
+    public SharedPreferences settings;
+    private ListView listView1, listView2;
+    private TextView titleTv, contentTv, scrapTv;
+
+    private ArrayList<String> contentData = null; //data list
+    private ArrayAdapter<String> arrayAdapter = null; // listview에 사용되는 ArrayAdapter
+
+    ArrayList<Integer> nums = new ArrayList<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,73 +47,76 @@ public class MainActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference();
 
-        ArrayList<Integer> nums = new ArrayList<Integer>();
+        listView1 = (ListView) findViewById(R.id.main_list_view_1); //인기글
+        listView2 = (ListView) findViewById(R.id.main_list_view_2); // 최신글
 
-        mData = new ArrayList<List>();
+        titleTv = (TextView) findViewById(R.id.main_list_title_tv); //제목 tv
+        contentTv = (TextView) findViewById(R.id.main_list_content_tv); //내용 tv
+        scrapTv = (TextView) findViewById(R.id.main_list_scrap_tv); //스크랩수
 
-        for(int i = 0; i < 20; i++) {
-            List list = new List();
+        contentData = new ArrayList<String>();
 
-            list.title = "길고양이를 학대하는 갤러리를 폐쇄하고 엄중한 수사를 해주십시오 길고양이를 학대하는 갤러리를 폐쇄하고 엄중한 수사를 해주십시오 " +i;
-//            list.context = "청원내용" + i;
-            list.writer = "이현민" + i;
-            list.date = "2022-08-23";
+        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, contentData);
 
-            mData.add(list);
-
-        }
-
-        mAdapter = new BaseAdapterEx(this, mData);
-
-        mListView = (ListView) findViewById(R.id.main_list_view_1);
-        mListView.setAdapter(mAdapter);
-
-        mListView = (ListView) findViewById(R.id.main_list_view_2);
-        mListView.setAdapter(mAdapter);
+        listView1.setAdapter(arrayAdapter);
+        listView2.setAdapter(arrayAdapter);
 
 
-        databaseReference.child("Post").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-                    String key = postSnapshot.getKey();
-                    String value = postSnapshot.child("postType").getValue(String.class); // 분야
-                    int num = postSnapshot.child("postLikeCount").getValue(Integer.class); // 추천
-                    int date = postSnapshot.child("postTime").getValue(Integer.class); // 최신
-
-                            /* 분야별 불러오기
-                            if (value.equals("글로벌융합대학")) {
-                                String text = postSnapshot.child("postContent").getValue(String.class);
-                                Toast.makeText(DB.this, text, Toast.LENGTH_LONG).show();
-                            }
-                            */
-
-                    // 추천순 불러오기 (2개)
-                    if (num > 99) {
-                        nums.add(num);
+        findViewById(R.id.main_list_btn1).setOnClickListener(
+                new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent_main = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent_main);
+                        overridePendingTransition(0, 0);
                     }
-
-                    // 최신순 불러오기 (3개)
-                    // 이미 파이어 베이스에 제일 최신글이 맨 위에 있음 불러올 때도 맨 위 데이터부터 가져옴
-                    // count 세어서 3번 넘어가면 끝
                 }
+        );
 
-                        /*
-                        String value = dataSnapshot.getValue(String.class);
-                        Toast.makeText(DB.this, value, Toast.LENGTH_LONG).show();
-                        dataSnapshot.getChildren();
+        findViewById(R.id.main_list_btn2).setOnClickListener(
+                new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent_subject = new Intent(getApplicationContext(), SubjectActivity.class);
+                        startActivity(intent_subject);
+                        overridePendingTransition(0, 0);
 
-                       \for (DataSnapshot postSnapshot2: postSnapshot.getChildren()) {
-                              String value = postSnapshot2.getValue(String.class);
-                         }
-                        */
+                    }
+                }
+        );
 
-            }
+        findViewById(R.id.main_list_btn3).setOnClickListener(
+                new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        // Intent intent_applyComplete = new Intent(getApplicationContext(), applyCompleteActivity.class);
+                        // startActivity(intent_applyComplete);
+                        overridePendingTransition(0, 0);
+                    }
+                }
+        );
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                //Log.e("MainActivity", String.valueOf(databaseError.toException())); // 에러문 출력
-            }
-        });
+        findViewById(R.id.main_floating_write_btn).setOnClickListener(
+                new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent_write = new Intent(getApplicationContext(), WriteActivity.class);
+                        startActivity(intent_write);
+                        overridePendingTransition(0, 0);
+                    }
+                }
+        );
+
+        findViewById(R.id.main_ic_circle_user_iv).setOnClickListener(
+                new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent_myPage = new Intent(getApplicationContext(), MyPage.class);
+                        startActivity(intent_myPage);
+                        overridePendingTransition(0, 0);
+                    }
+                }
+        );
+
     }
 }

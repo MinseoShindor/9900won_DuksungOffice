@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                                     FirebaseUser user = firebaseAuth.getCurrentUser();
                                     databaseReference.child("User").child(login_id_et.getText().toString()).child("uid").setValue(firebaseAuth.getUid());
 
-                                    Intent intent = new Intent(getApplicationContext(), WriteActivity.class);
+                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                     intent.putExtra("userId", login_id_et.getText().toString());
                                     startActivity(intent);
                                 } else {

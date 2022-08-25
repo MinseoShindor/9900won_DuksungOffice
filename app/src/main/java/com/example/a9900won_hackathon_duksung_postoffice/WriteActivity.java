@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -209,7 +210,7 @@ public class WriteActivity extends AppCompatActivity {
 
                 } else {
                     // 현재 로그인한 User 정보 받아오기
-                    databaseReference.child("User").child(userId).child("name").addValueEventListener(new ValueEventListener() {
+                    databaseReference.child("User").child("202222").child("name").addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             String value = snapshot.getValue(String.class);
@@ -243,6 +244,12 @@ public class WriteActivity extends AppCompatActivity {
 
     private void writePost (String postWriterName, String postWriterUid, String postType, String postTitle, String postContent, Boolean postHasPhoto, Boolean postIsAnonymity) {
         String value = databaseReference.push().getKey();
+        FirebaseMessaging.getInstance().subscribeToTopic(value).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Log.d("FCM_Service", value);
+            }
+        });
         Post post = new Post (postWriterName, postWriterUid, postType, postTitle, postContent, postHasPhoto, value, postIsAnonymity);
         databaseReference.child("Post").child(value).setValue(post);
     }

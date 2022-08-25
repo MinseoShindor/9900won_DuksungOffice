@@ -295,7 +295,7 @@ public class DB extends AppCompatActivity {
 
     // Firebase Realtime에 계정 생성
     private void addUser(String id, String name, String major, String uid) {
-        User user = new User (id, name, major, uid);
+        User user = new User (id, name, major);
         databaseReference.child("User").child(uid).setValue(user);
     }
 
