@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Post {
     String postWriterName; // 작성자 명
+    String postWriterUid; // 작성자 고유 정보
     String postTime; // 작성 날짜
     String postType; // 게시글 종류 (분야 or 학과...)
     String postTitle; // 게시글 제목
@@ -23,8 +24,9 @@ public class Post {
 
 
     // 게시글 작성 처리 (이미지 X)
-    public Post (String postWriterName, String postType, String postTitle, String postContent, Boolean postHasPhoto, String postTopic, Boolean postIsAnonymity) {
+    public Post (String postWriterName, String postWriterUid, String postType, String postTitle, String postContent, Boolean postHasPhoto, String postTopic, Boolean postIsAnonymity) {
         this.postWriterName = postWriterName;
+        this.postWriterUid = postWriterUid;
         this.postType = postType;
         this.postTitle = postTitle;
         this.postContent = postContent;
@@ -39,8 +41,9 @@ public class Post {
     }
 
     // 게시글 작성 처리 (이미지 O)
-    public Post (String postWriterName, String postType, String postTitle, String postContent, Boolean postHasPhoto, String postPhotoName, String postTopic, Boolean postIsAnonymity) {
+    public Post (String postWriterName, String postWriterUid, String postType, String postTitle, String postContent, Boolean postHasPhoto, String postPhotoName, String postTopic, Boolean postIsAnonymity) {
         this.postWriterName = postWriterName;
+        this.postWriterUid = postWriterUid;
         this.postType = postType;
         this.postTitle = postTitle;
         this.postContent = postContent;
@@ -76,6 +79,10 @@ public class Post {
 
     public String getPostTopic() {
         return postTopic;
+    }
+
+    public String getPostWriterUid() {
+        return postWriterUid;
     }
 
     public String getPostContent() {
@@ -128,6 +135,10 @@ public class Post {
 
     public void setPostIsHot(Boolean postIsHot) {
         this.postIsHot = postIsHot;
+    }
+
+    public void setPostWriterUid(String postWriterUid) {
+        this.postWriterUid = postWriterUid;
     }
 
     public void setPostContent(String postContent) {

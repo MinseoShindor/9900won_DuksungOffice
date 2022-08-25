@@ -57,6 +57,15 @@ public class WriteActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Boolean IsAnonymity = anonymity.isChecked();
 
+                databaseReference.child("User").child(firebaseAuth.getUid()).child("name").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String value = snapshot.getValue(String.class);
+                        writerName = value;
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) { }
+                });
 
                 /*
                 // 이미지 첨부가 됐다면...
@@ -74,21 +83,21 @@ public class WriteActivity extends AppCompatActivity {
                 } else { }
                  */
 
-                writePost("허희원", "분야 -> 스피널로 받아와야 함", write_title_et.getText().toString(), write_context_et.getText().toString(), false,  IsAnonymity);
+                writePost(writerName, "분야 -> 스피널로 받아와야 함", write_title_et.getText().toString(), write_context_et.getText().toString(), false,  IsAnonymity);
             }
         });
     }
 
     private void writePost (String postWriterName, String postType, String postTitle, String postContent, Boolean postHasPhoto, Boolean postIsAnonymity) {
         String value = databaseReference.push().getKey();
-        Post post = new Post (postWriterName, postType, postTitle, postContent, postHasPhoto, value, postIsAnonymity);
+        Post post = new Post (postWriterName, firebaseAuth.getUid(), postType, postTitle, postContent, postHasPhoto, value, postIsAnonymity);
         databaseReference.child("Post").child(value).setValue(post);
         Toast.makeText(WriteActivity.this, value, Toast.LENGTH_SHORT).show();
     }
 
     private void writePostWithImg (String postWriterName, String postType, String postTitle, String postContent, Boolean postHasPhoto, String postPhotoName, Boolean postIsAnonymity) {
         databaseReference.child("Post").push(); // postTopic 자동 생성 함수
-        Post post = new Post (postWriterName, postType, postTitle, postContent, postHasPhoto, postPhotoName, databaseReference.child("Post").getKey(), postIsAnonymity);
+        Post post = new Post (postWriterName, firebaseAuth.getUid(), postType, postTitle, postContent, postHasPhoto, postPhotoName, databaseReference.child("Post").getKey(), postIsAnonymity);
         databaseReference.child("Post").child(databaseReference.child("Post").getKey()).setValue(post);
     }
 }
