@@ -25,7 +25,7 @@
                 android:id="@+id/list_title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="길고양이를 학대하는 갤러리를 폐쇄하고........."
+                android:text="길고양이를 학대하는 갤러리를 폐쇄하고.....길고양이를 학대하는 갤러리를 폐쇄하고....."
                 android:fontFamily="@font/nanumsquareroundr"
                 android:textColor="@color/black"
                 android:textSize="17sp" >

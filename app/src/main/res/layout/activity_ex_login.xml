@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@id/Ex_login_tv1"/>
 
     <TextView
-        android:id="@+id/Ex_login_tv2"
+        android:id="@+id/Ex_signIn_tv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="회원가입하기"
@@ -78,11 +78,7 @@
         android:background="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Ex_login_tv2"/>
-
-
-
-
+        app:layout_constraintTop_toBottomOf="@id/Ex_signIn_tv2"/>
 
 
 

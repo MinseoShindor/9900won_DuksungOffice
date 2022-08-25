@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         for(int i = 0; i < 20; i++) {
             List list = new List();
 
-            list.title = "길고양이를 학대하는 갤러리를 폐쇄하고 엄중한 수사를 해주십시오 " +i;
+            list.title = "길고양이를 학대하는 갤러리를 폐쇄하고 엄중한 수사를 해주십시오 길고양이를 학대하는 갤러리를 폐쇄하고 엄중한 수사를 해주십시오 " +i;
 //            list.context = "청원내용" + i;
             list.writer = "이현민" + i;
             list.date = "2022-08-23";
