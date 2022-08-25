@@ -23,7 +23,7 @@
             android:name=".WriteActivity"
             android:exported="false" />
         <activity
-            android:name=".mainActivity2"
+            android:name=".SubjectActivity"
             android:exported="false" />
         <activity
             android:name=".MyPage"

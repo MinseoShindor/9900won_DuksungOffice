@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mainActivity2">
+    tools:context=".SubjectActivity">
 
 
 <androidx.constraintlayout.widget.ConstraintLayout
