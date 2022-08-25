@@ -1,5 +1,6 @@
 package com.example.a9900won_hackathon_duksung_postoffice;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -22,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     ListView mListView = null;
     BaseAdapterEx mAdapter = null;
     ArrayList<List> mData = null;
-    Button btn1, btn2, btn3 = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +52,47 @@ public class MainActivity extends AppCompatActivity {
         mListView = (ListView) findViewById(R.id.main_list_view_2);
         mListView.setAdapter(mAdapter);
 
-        btn1 = (Button) findViewById(R.id.main_list_btn1);
-        btn2 = (Button) findViewById(R.id.main_list_btn2);
+       findViewById(R.id.main_list_btn1).setOnClickListener(
+               new Button.OnClickListener(){
+                   @Override
+                   public void onClick(View v) {
+                       Intent intent_main = new Intent(getApplicationContext(), MainActivity.class);
+                       startActivity(intent_main);
+                   }
+               }
+       );
+
+        findViewById(R.id.main_list_btn2).setOnClickListener(
+                new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent_subject = new Intent(getApplicationContext(), SubjectActivity.class);
+                        startActivity(intent_subject);
+                    }
+                }
+        );
+
+        findViewById(R.id.main_list_btn3).setOnClickListener(
+                new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent_applyComplete = new Intent(getApplicationContext(), applyCompleteActivity.class);
+                        startActivity(intent_applyComplete);
+                    }
+                }
+        );
+
+        findViewById(R.id.main_floating_write_btn).setOnClickListener(
+                new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent_write = new Intent(getApplicationContext(), WriteActivity.class);
+                        startActivity(intent_write);
+                    }
+                }
+        );
+
+
 
 
 

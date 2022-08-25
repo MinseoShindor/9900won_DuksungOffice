@@ -15,15 +15,18 @@
         android:theme="@style/Theme.9900won_Hackathon_Duksung_PostOffice"
         tools:targetApi="31">
         <activity
-            android:name=".SignInActivity"
+            android:name=".applyCompleteActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".ContentInsideActivity"
+            android:name=".SignInActivity"
             android:exported="true"></activity>
         <activity
+            android:name=".ContentInsideActivity"
+            android:exported="true" />
+        <activity
             android:name=".SubActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".WriteActivity"
             android:exported="false" />

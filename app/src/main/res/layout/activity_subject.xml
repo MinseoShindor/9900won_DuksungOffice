@@ -23,8 +23,9 @@
     </LinearLayout>
 
     <View
+        android:id="@+id/login_tv1_underscore_view"
         android:layout_width="match_parent"
-        android:layout_height="2px"
+        android:layout_height="1dp"
         android:background="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,20 +44,62 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/main_top_navigation_menu"
+    <LinearLayout
+        android:id="@+id/main_list_alignment_layout"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        app:menu="@menu/menu"
-        android:background="#00b4cb"
-        app:layout_constraintTop_toBottomOf="@id/main_top_bar" />
+        android:layout_height="50sp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/main_top_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <Button
+            android:id="@+id/main_list_btn1"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:background="#00b4cb"
+            android:text="메인"
+            android:textAlignment="center"
+            android:textSize="19sp"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/nanumsquareroundr"
+            >
+        </Button>
 
-        <LinearLayout
+        <Button
+            android:id="@+id/main_list_btn2"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:background="#00b4cb"
+            android:text="분야별"
+            android:textAlignment="center"
+            android:textSize="19sp"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/nanumsquareroundr"
+            >
+            //여기 흰색 언더바
+        </Button>
+        <Button
+            android:id="@+id/main_list_btn3"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:background="#00b4cb"
+            android:text="답변됨"
+            android:textAlignment="center"
+            android:textSize="19sp"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/nanumsquareroundr"
+            >
+        </Button>
+    </LinearLayout>
+
+
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
             android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/main_top_navigation_menu"
+            app:layout_constraintTop_toBottomOf="@id/main_list_alignment_layout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             >

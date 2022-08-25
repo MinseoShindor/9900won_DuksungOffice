@@ -136,6 +136,7 @@
                 android:inputType="text"/>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -152,15 +153,30 @@
 
             </TextView>
 
-            <EditText
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:hint="학교 이메일을 입력하세요"
-                android:fontFamily="@font/nanumsquareroundr"
-                android:textSize="15sp"
-                android:inputType="textEmailAddress"/>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_width="220sp"
+                    android:layout_height="45sp"
+                    android:hint="학교 이메일을 입력하세요"
+                    android:fontFamily="@font/nanumsquareroundr"
+                    android:textSize="15sp"
+                    android:inputType="textEmailAddress"/>
+                <Button
+                    android:layout_width="110sp"
+                    android:layout_height="30sp"
+                    android:text="인증코드 보내기"
+                    android:fontFamily="@font/nanumsquareroundb"
+                    android:layout_marginStart="20sp"
+                    android:background="@drawable/btn_login_blue"/>
+
+            </LinearLayout>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -177,13 +193,28 @@
 
             </TextView>
 
-            <EditText
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:hint="학교 이메일에서 인증코드를 확인하세요"
-                android:fontFamily="@font/nanumsquareroundr"
-                android:textSize="15sp"
-                android:inputType="number"/>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_width="220sp"
+                    android:layout_height="45sp"
+                    android:hint="인증코드를 입력하세요"
+                    android:fontFamily="@font/nanumsquareroundr"
+                    android:textSize="15sp"
+                    android:inputType="textEmailAddress"/>
+                <Button
+                    android:layout_width="110sp"
+                    android:layout_height="30sp"
+                    android:text="인증코드 확인"
+                    android:fontFamily="@font/nanumsquareroundb"
+                    android:layout_marginStart="20sp"
+                    android:background="@drawable/btn_login_blue"/>
+
+            </LinearLayout>
+
 
         </LinearLayout>
         <Button

@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/main_top_bar"
@@ -117,7 +114,7 @@
             <ListView
                 android:id="@+id/main_list_view_1"
                 android:layout_width="match_parent"
-                android:layout_height="260dp"
+                android:layout_height="210sp"
                 android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@id/main_subject_tv1"
                 tools:listitem="@layout/main_list_item" />
@@ -154,7 +151,7 @@
             <ListView
                 android:id="@+id/main_list_view_2"
                 android:layout_width="match_parent"
-                android:layout_height="745dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@id/main_subject_layout"
                 tools:listitem="@layout/main_list_item" />
@@ -164,19 +161,14 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/main_floating_write_btn"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
             android:background="#00b4cb"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="20sp"
+            android:layout_marginBottom="20sp"
             android:src="@drawable/ic_pen_nib_solid"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-</ScrollView>
-
-
-
