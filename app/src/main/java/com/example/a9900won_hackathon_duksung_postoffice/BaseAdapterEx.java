@@ -45,12 +45,12 @@ public class BaseAdapterEx extends android.widget.BaseAdapter {
 
         if(itemLayout == null)
         {
-            itemLayout = mLayoutInflater.inflate(R.layout.main_list_item, null);
+            itemLayout = mLayoutInflater.inflate(R.layout.subject_list_item, null);
 
             viewHolder = new ViewHolder();
 //
-//            viewHolder.mContentTv = (TextView) itemLayout.findViewById(R.id.list_content_tv);
-            viewHolder.mTitleTv = (TextView) itemLayout.findViewById(R.id.list_title_tv);
+            viewHolder.mContentTv = (TextView) itemLayout.findViewById(R.id.main_list_content_tv);
+            viewHolder.mTitleTv = (TextView) itemLayout.findViewById(R.id.main_list_title_tv);
             viewHolder.mWriterTv = (TextView) itemLayout.findViewById(R.id.list_writer_tv);
             viewHolder.mDateTv = (TextView) itemLayout.findViewById(R.id.list_date_tv);
 
@@ -60,7 +60,7 @@ public class BaseAdapterEx extends android.widget.BaseAdapter {
             viewHolder = (ViewHolder) itemLayout.getTag();
         }
 
-//        viewHolder.mContentTv = (TextView) itemLayout.findViewById(R.id.list_content_tv);
+        viewHolder.mContentTv = (TextView) itemLayout.findViewById(R.id.main_list_content_tv);
         viewHolder.mTitleTv = (TextView) itemLayout.findViewById(R.id.list_title_tv);
         viewHolder.mWriterTv = (TextView) itemLayout.findViewById(R.id.list_writer_tv);
         viewHolder.mDateTv = (TextView) itemLayout.findViewById(R.id.list_date_tv);
@@ -71,7 +71,7 @@ public class BaseAdapterEx extends android.widget.BaseAdapter {
     class ViewHolder
     {
         TextView mTitleTv;
-//        TextView mContentTv;
+        TextView mContentTv;
         TextView mWriterTv;
         TextView mDateTv;
 

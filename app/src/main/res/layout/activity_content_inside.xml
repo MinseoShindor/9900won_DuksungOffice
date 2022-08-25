@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d3d3d3"
+    tools:context=".ContentInsideActivity">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#d3d3d3"
+        >
+
+
+        <LinearLayout
+            android:id="@+id/content_inside_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:background="#00b4cb"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IT미디어공학과"
+            android:textColor="@color/white"
+            android:fontFamily="@font/nanumsquareroundb"
+            android:textSize="17sp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        
+        <LinearLayout
+            android:id="@+id/content_inside_layout1"
+            android:layout_width="380dp"
+            android:layout_height="350dp"
+            android:background="@drawable/background_rectangle_write"
+            android:layout_marginTop="18dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/content_inside_top_bar">
+            
+            <TextView
+                android:id="@+id/content_inside_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IT미디어공학과 졸업 작품실 컴퓨터 사양 관련하여 건의드립니다"
+                android:textSize="17sp"
+                android:fontFamily="@font/nanumsquareroundb"
+                android:textColor="@color/black"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/content_inside_date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2022-08-23"
+                android:textSize="12sp"
+                android:fontFamily="@font/nanumsquareroundb"
+                android:textColor="@color/list_font"
+                android:paddingStart="10dp" />
+            
+            <LinearLayout
+                android:id="@+id/content_inside_name_layout"
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/content_inside_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="이현민"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/nanumsquareroundb"
+                    android:textColor="@color/list_font"
+                    android:paddingStart="10dp" />
+
+                <ImageView
+                    android:id="@+id/content_inside_photo_iv"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="300dp"
+                    android:src="@drawable/ic_image_regular" />
+
+                <TextView
+                    android:id="@+id/content_inside_photo_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textColor="#5e5e5e"
+                    android:textSize="12sp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/nanumsquareroundb" />
+
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/content_inside_underscore_view1"
+                android:layout_width="400dp"
+                android:layout_height="3.5px"
+                android:background="#9e9e9e"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:id="@+id/content_inside_content_tv"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:text="건의내용"
+                android:padding="10dp"
+                android:textSize="12sp"
+                android:fontFamily="@font/nanumsquareroundb"
+                android:textColor="@color/list_font" />
+            
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/content_inside_thumbs_up_iv"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="260dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_thumbs_up" />
+
+                <TextView
+                    android:id="@+id/content_inside_thumbs_up_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="200"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/nanumsquareroundb" />
+
+
+                <ImageView
+                    android:id="@+id/content_inside_scrap_iv"
+                    android:layout_width="15dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_bookmark_regular" />
+
+                <TextView
+                    android:id="@+id/content_inside_scrap_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="39"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/nanumsquareroundb" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/content_inside_reply_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="댓글"
+            android:textSize="14sp"
+            android:fontFamily="@font/nanumsquareroundb"
+            android:textColor="@color/black"
+            android:padding="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/content_inside_layout1" />
+
+
+        <LinearLayout
+            android:id="@+id/content_inside_layout2"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/content_inside_reply_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/background_rectangle_write"
+                android:hint="의견을 작성해주세요 근거없는 비난은 삭제나 신고의 대상이 될 수 있습니다."
+                android:textSize="13sp"
+                android:fontFamily="@font/nanumsquareroundr"
+                android:gravity="top"
+                android:padding="10dp" />
+
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:background="@drawable/btn_rectangle_write"
+                android:layout_marginStart="320dp"
+                android:text="글쓰기"
+                android:textSize="13sp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp" />
+
+
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            tools:listitem="@layout/reply_list_item"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/content_inside_layout2" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    
+</ScrollView>
