@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -19,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -81,6 +83,14 @@ public class WriteActivity extends AppCompatActivity {
 
     private void writePost (String postWriterName, String postType, String postTitle, String postContent, Boolean postHasPhoto, Boolean postIsAnonymity) {
         String value = databaseReference.push().getKey();
+        //fcm topic 구독
+        FirebaseMessaging.getInstance().subscribeToTopic(value).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Log.d("FCM_Service", value);
+            }
+        });
+        //여기까지 -현민-
         Post post = new Post (postWriterName, postType, postTitle, postContent, postHasPhoto, value, postIsAnonymity);
         databaseReference.child("Post").child(value).setValue(post);
         Toast.makeText(WriteActivity.this, value, Toast.LENGTH_SHORT).show();
