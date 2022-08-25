@@ -57,17 +57,6 @@ public class WriteActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Boolean IsAnonymity = anonymity.isChecked();
 
-                /*
-                databaseReference.child("User").child(firebaseAuth.getUid()).child("name").addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String value = snapshot.getValue(String.class);
-                        writerName = value;
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) { }
-                });
-                */
 
                 /*
                 // 이미지 첨부가 됐다면...
