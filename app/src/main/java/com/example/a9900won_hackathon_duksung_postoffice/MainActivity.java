@@ -22,11 +22,13 @@ public class MainActivity extends AppCompatActivity {
     ListView mListView = null;
     BaseAdapterEx mAdapter = null;
     ArrayList<List> mData = null;
+    Button btn1, btn2, btn3 = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         mData = new ArrayList<List>();
 
@@ -49,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
 
         mListView = (ListView) findViewById(R.id.main_list_view_2);
         mListView.setAdapter(mAdapter);
+
+        btn1 = (Button) findViewById(R.id.main_list_btn1);
+        btn2 = (Button) findViewById(R.id.main_list_btn2);
+        btn3 = (Button) findViewById(R.id.main_list_btn3);
+
 
     }
 }
