@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText editTextID; // 학번
     private EditText editTextPassword;
-    private Button ExLoginBtn;
+    private Button LoginBtn;
 
     private static final String TAG = "LoginActivity";
 
@@ -44,8 +44,8 @@ public class LoginActivity extends AppCompatActivity {
         editTextID = (EditText) findViewById(R.id.editText_email);
         editTextPassword = (EditText) findViewById(R.id.editText_passWord);
 
-        ExLoginBtn = findViewById(R.id.btn_loginBtn);
-        ExLoginBtn.setOnClickListener(new View.OnClickListener() {
+        LoginBtn = findViewById(R.id.btn_loginBtn);
+        LoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 firebaseAuth.signInWithEmailAndPassword(editTextID.getText().toString()+"@example.com", editTextPassword.getText().toString())
@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.makeText(LoginActivity.this, "환영합니다~",
                                             Toast.LENGTH_SHORT).show();
 
-                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                    Intent intent = new Intent(getApplicationContext(), WriteActivity.class);
                                     startActivity(intent);
                                 } else {
                                     // 로그인 실패시

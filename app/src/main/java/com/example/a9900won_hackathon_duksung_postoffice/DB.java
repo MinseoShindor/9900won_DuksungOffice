@@ -275,6 +275,7 @@ public class DB extends AppCompatActivity {
     }
 
 
+    // FirebaseAuth에 계정 생성
     private void createUser(String email, String password, String name) {
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -292,20 +293,11 @@ public class DB extends AppCompatActivity {
                 });
     }
 
-
+    // Firebase Realtime에 계정 생성
     private void addUser(String id, String name, String major, String uid) {
         User user = new User (id, name, major, uid);
         databaseReference.child("User").child(uid).setValue(user);
     }
-
-
-
-    private void writePostWithImg (String postWriterName, String postType, String postTitle, String postContent, Boolean postHasPhoto, String postPhotoName, Boolean postIsAnonymity) {
-        databaseReference.child("Post").push(); // postTopic 자동 생성 함수
-        Post post = new Post (postWriterName, postType, postTitle, postContent, postHasPhoto, postPhotoName, databaseReference.child("Post").getKey(), postIsAnonymity);
-        databaseReference.child("Post").child(databaseReference.child("Post").getKey()).setValue(post);
-    }
-
 
     private void writeReply (String postWithReplyTopic, String replyWriterName, String replyContent, Boolean replyIsAnonymity) {
         databaseReference.child("Reply").push(); // replyTopic 자동 생성 함수
