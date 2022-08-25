@@ -190,7 +190,7 @@
             android:id="@+id/join_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="35dp"
             android:text="가입하기"
             android:background="@drawable/et_login_input"
             android:fontFamily="@font/nanumsquareroundb"
