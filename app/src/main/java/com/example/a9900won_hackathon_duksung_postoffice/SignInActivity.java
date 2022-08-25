@@ -61,18 +61,18 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // 회원가입 처리
+                // 이메일과 비밀번호가 공백이 아닌 경우
                 if (!editTextEmail.getText().toString().equals("") && !editTextPassword.getText().toString().equals("")) {
-                    // 이메일과 비밀번호가 공백이 아닌 경우
-                    String modifyText = editTextEmail.getText().toString() + "@example.com";
-                    createUser(modifyText, editTextPassword.getText().toString(), editTextName.getText().toString());
-
                     // 비밀번호는 6자리 이상
                     if (editTextPassword.getTextSize() < 6) {
                         Toast.makeText(SignInActivity.this, "비밀번호는 6자리 이상으로 설정해주세요.", Toast.LENGTH_LONG).show();
+                        return;
                     }
 
                     if (numCheck) {
-                        addUser(editTextID.getText().toString(), editTextName.getText().toString(), editTextMajor.getText().toString(), "돼따");
+                        String modifyText = editTextID.getText().toString() + "@example.com";
+                        createUser(modifyText, editTextPassword.getText().toString());
+                        addUser(editTextID.getText().toString(), editTextName.getText().toString(), editTextMajor.getText().toString());
 
                     } else {
                         Toast.makeText(SignInActivity.this, "학교 이메일 인증을 해주세요.", Toast.LENGTH_LONG).show();
@@ -103,6 +103,8 @@ public class SignInActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }).start();
+
+                    Toast.makeText(SignInActivity.this, "인증 번호가 전송되었습니다.", Toast.LENGTH_LONG).show();
                 } catch (Exception e) {
                     Log.e("SendMail", e.getMessage(), e);
                 }
@@ -126,27 +128,27 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     // FirebaseAuth에 계정 생성
-    private void createUser(String email, String password, String name) {
+    private void createUser(String email, String password) {
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // 회원가입 성공시
-                            Toast.makeText(SignInActivity.this, "회원가입 성공", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignInActivity.this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
                             finish();
                         } else {
                             // 계정이 중복된 경우
-                            Toast.makeText(SignInActivity.this, "실패ㅠ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignInActivity.this, "회원가입 실패ㅠ", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
     }
 
     // Firebase Realtime에 계정 생성
-    private void addUser(String id, String name, String major, String uid) {
-        User user = new User (id, name, major, uid);
-        databaseReference.child("User").child(uid).setValue(user);
+    private void addUser(String id, String name, String major) {
+        User user = new User (id, name, major);
+        databaseReference.child("User").child(id).setValue(user);
     }
 
     private void makeRandomNums() {

@@ -10,11 +10,10 @@ public class User {
     String myScraps; // 내가 스크랩한 글
     String myReplies; // 내가 쓴 답글
 
-    public User (String id, String name, String major, String uid) {
+    public User (String id, String name, String major) {
         this.id = id;
         this.name = name;
         this.major = major;
-        this.uid = uid;
     }
 
     public String getId() {
