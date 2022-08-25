@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn1 = (Button) findViewById(R.id.main_list_btn1);
         btn2 = (Button) findViewById(R.id.main_list_btn2);
-        btn3 = (Button) findViewById(R.id.main_list_btn3);
+
 
 
     }
