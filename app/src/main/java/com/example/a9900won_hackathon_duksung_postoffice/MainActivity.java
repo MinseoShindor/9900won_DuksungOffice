@@ -9,13 +9,7 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-<<<<<<< HEAD
 import java.util.List;
-
-public class MainActivity extends AppCompatActivity {
-
-=======
-
 public class MainActivity extends AppCompatActivity {
 
     ListView mListView = null;
@@ -28,5 +22,4 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
     }
->>>>>>> a2aa071f8799d0470948e45877ec154540f0c2a1
 }

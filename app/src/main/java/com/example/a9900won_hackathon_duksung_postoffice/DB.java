@@ -271,23 +271,7 @@ public class DB extends AppCompatActivity {
             }
         });
 
-        /*
-        // 로그인 처리
-        // signInWithEmailAndPassword 메서드를 사용하여 이메일 주소와 비밀번호를 가져와 유효성을 검사한 후 사용자를 로그인
-        firebaseAuth.signInWithEmailAndPassword(//사용자가 입력한 아이디 editTextID.getText().toString()+"@example.com"
-                        // , 입력한 password)
-                .addOnCompleteListener(this) { task ->
-            if()
 
-            if (task.isSuccessful) {
-                // Sign in success, update UI with the signed-in user's information
-                Toast.makeText(this, "로그인 성공", Toast.LENGTH_LONG).show()
-            } else {
-                // If sign in fails, display a message to the user.
-                Toast.makeText(this, "로그인 실패", Toast.LENGTH_LONG).show()
-            }
-        }
-            */
     }
 
 
@@ -314,12 +298,6 @@ public class DB extends AppCompatActivity {
         databaseReference.child("User").child(uid).setValue(user);
     }
 
-
-    private void writePost (String postWriterName, String postType, String postTitle, String postContent, Boolean postHasPhoto, Boolean postIsAnonymity) {
-        databaseReference.child("Post").push(); // postTopic 자동 생성 함수
-        Post post = new Post (postWriterName, postType, postTitle, postContent, postHasPhoto, databaseReference.child("Post").getKey(), postIsAnonymity);
-        databaseReference.child("Post").child(databaseReference.child("Post").getKey()).setValue(post);
-    }
 
 
     private void writePostWithImg (String postWriterName, String postType, String postTitle, String postContent, Boolean postHasPhoto, String postPhotoName, Boolean postIsAnonymity) {

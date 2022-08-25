@@ -1,6 +1,5 @@
 package com.example.a9900won_hackathon_duksung_postoffice;
 
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
