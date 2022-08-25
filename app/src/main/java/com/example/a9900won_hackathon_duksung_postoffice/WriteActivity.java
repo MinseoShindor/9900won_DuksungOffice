@@ -43,7 +43,7 @@ public class WriteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_write);
 
         write_title_et = (EditText) findViewById(R.id.write_title_et);
-        write_context_et = (EditText) findViewById(R.id.write_title_et);
+        write_context_et = (EditText) findViewById(R.id.write_context_et);
         btn_write = (Button) findViewById(R.id.btn_write);
         anonymity = (CheckBox) findViewById(R.id.anonymity);
 
@@ -58,9 +58,13 @@ public class WriteActivity extends AppCompatActivity {
                 Boolean IsAnonymity = anonymity.isChecked();
 
                 if (write_title_et.getText().toString().equals("") || write_context_et.getText().toString().equals("")) {
-                    Toast.makeText(WriteActivity.this, "제목을 입력해주세요.",
-                            Toast.LENGTH_SHORT).show();
-
+                    if (write_title_et.getText().toString().equals("")) {
+                        Toast.makeText(WriteActivity.this, "제목을 입력해주세요.",
+                                Toast.LENGTH_SHORT).show();
+                    } else                     if (write_context_et.getText().toString().equals("")) {
+                        Toast.makeText(WriteActivity.this, "내용을 입력해주세요.",
+                                Toast.LENGTH_SHORT).show();
+                    }
                 } else {
                     /*
                     databaseReference.child("User").child(firebaseAuth.getUid()).child("name").addValueEventListener(new ValueEventListener() {
@@ -104,7 +108,6 @@ public class WriteActivity extends AppCompatActivity {
         Post post = new Post (postWriterName, "테스트", postType, postTitle, postContent, postHasPhoto, value, postIsAnonymity);
         // Post post = new Post (postWriterName, firebaseAuth.getUid(), postType, postTitle, postContent, postHasPhoto, value, postIsAnonymity);
         databaseReference.child("Post").child(value).setValue(post);
-        Toast.makeText(WriteActivity.this, value, Toast.LENGTH_SHORT).show();
     }
 
     private void writePostWithImg (String postWriterName, String postType, String postTitle, String postContent, Boolean postHasPhoto, String postPhotoName, Boolean postIsAnonymity) {
