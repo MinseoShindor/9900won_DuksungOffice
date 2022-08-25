@@ -26,9 +26,9 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
 
-    private EditText editTextID; // 학번
-    private EditText editTextPassword;
-    private Button LoginBtn;
+    private EditText login_id_et; // 학번
+    private EditText login_password_et;
+    private Button btn_loginBtn;
 
     private static final String TAG = "LoginActivity";
 
@@ -41,14 +41,14 @@ public class LoginActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference();
 
-        editTextID = (EditText) findViewById(R.id.editText_email);
-        editTextPassword = (EditText) findViewById(R.id.editText_passWord);
+        login_id_et = (EditText) findViewById(R.id.login_id_et);
+        login_password_et = (EditText) findViewById(R.id.login_password_et);
 
-        LoginBtn = findViewById(R.id.btn_loginBtn);
-        LoginBtn.setOnClickListener(new View.OnClickListener() {
+        btn_loginBtn = findViewById(R.id.btn_loginBtn);
+        btn_loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                firebaseAuth.signInWithEmailAndPassword(editTextID.getText().toString()+"@example.com", editTextPassword.getText().toString())
+                firebaseAuth.signInWithEmailAndPassword(login_id_et.getText().toString()+"@example.com", login_password_et.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -56,10 +56,10 @@ public class LoginActivity extends AppCompatActivity {
                                     // 로그인 성공시
                                     Log.d(TAG, "로그인 성공");
                                     FirebaseUser user = firebaseAuth.getCurrentUser();
-                                    Toast.makeText(LoginActivity.this, "환영합니다~",
-                                            Toast.LENGTH_SHORT).show();
+                                    databaseReference.child("User").child(login_id_et.getText().toString()).child("uid").setValue(firebaseAuth.getUid());
 
                                     Intent intent = new Intent(getApplicationContext(), WriteActivity.class);
+                                    intent.putExtra("userId", login_id_et.getText().toString());
                                     startActivity(intent);
                                 } else {
                                     // 로그인 실패시

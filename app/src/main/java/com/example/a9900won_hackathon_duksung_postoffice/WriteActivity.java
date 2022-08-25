@@ -51,6 +51,7 @@ public class WriteActivity extends AppCompatActivity {
 
     private String writerName; // 게시글 작성자 명
     private String postType; // 분류
+    private String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,9 @@ public class WriteActivity extends AppCompatActivity {
 
         writerName = "";
         postType = "";
+
+        Intent intent = getIntent();
+        userId = intent.getStringExtra("userId");
 
         ArrayAdapter Adapter6 = ArrayAdapter.createFromResource(this, R.array.pick_2_2_3, android.R.layout.simple_spinner_dropdown_item);
         ArrayAdapter Adapter5 = ArrayAdapter.createFromResource(this, R.array.pick_2_2_2, android.R.layout.simple_spinner_dropdown_item);
@@ -140,7 +144,7 @@ public class WriteActivity extends AppCompatActivity {
                                     @Override
                                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                         spinnerText3 = spinner3.getSelectedItem().toString();
-                                        postType = spinnerText2; // 세부 학과
+                                        postType = spinnerText3; // 세부 학과
                                         Log.d(spinnerText1 + spinnerText2 + spinnerText3, "메뉴 선택 : ");
                                     }
                                     @Override
@@ -155,7 +159,7 @@ public class WriteActivity extends AppCompatActivity {
                                     @Override
                                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                         spinnerText3 = spinner3.getSelectedItem().toString();
-                                        postType = spinnerText2; // 세부 학과
+                                        postType = spinnerText3; // 세부 학과
                                         Log.d(spinnerText1 + spinnerText2 + spinnerText3, "메뉴 선택 : ");
                                     }
                                     @Override
@@ -204,8 +208,8 @@ public class WriteActivity extends AppCompatActivity {
                     return;
 
                 } else {
-                    /* // 현재 로그인한 User 정보 받아오기
-                    databaseReference.child("User").child(firebaseAuth.getUid()).child("name").addValueEventListener(new ValueEventListener() {
+                    // 현재 로그인한 User 정보 받아오기
+                    databaseReference.child("User").child(userId).child("name").addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             String value = snapshot.getValue(String.class);
@@ -215,9 +219,7 @@ public class WriteActivity extends AppCompatActivity {
                         public void onCancelled(@NonNull DatabaseError error) { }
                     });
 
-                     */
-
-                    writePost("테스트", postType, write_title_et.getText().toString(), write_context_et.getText().toString(), false,  IsAnonymity);
+                    writePost(writerName, userId, postType, write_title_et.getText().toString(), write_context_et.getText().toString(), false,  IsAnonymity);
                 }
 
                 /*
@@ -239,9 +241,9 @@ public class WriteActivity extends AppCompatActivity {
         });
     }
 
-    private void writePost (String postWriterName, String postType, String postTitle, String postContent, Boolean postHasPhoto, Boolean postIsAnonymity) {
+    private void writePost (String postWriterName, String postWriterUid, String postType, String postTitle, String postContent, Boolean postHasPhoto, Boolean postIsAnonymity) {
         String value = databaseReference.push().getKey();
-        Post post = new Post (postWriterName, "테스트", postType, postTitle, postContent, postHasPhoto, value, postIsAnonymity);
+        Post post = new Post (postWriterName, postWriterUid, postType, postTitle, postContent, postHasPhoto, value, postIsAnonymity);
         databaseReference.child("Post").child(value).setValue(post);
     }
 

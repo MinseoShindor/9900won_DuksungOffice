@@ -1,5 +1,6 @@
 package com.example.a9900won_hackathon_duksung_postoffice;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -72,8 +73,6 @@ public class SignInActivity extends AppCompatActivity {
                     if (numCheck) {
                         String modifyText = editTextID.getText().toString() + "@example.com";
                         createUser(modifyText, editTextPassword.getText().toString());
-                        addUser(editTextID.getText().toString(), editTextName.getText().toString(), editTextMajor.getText().toString());
-
                     } else {
                         Toast.makeText(SignInActivity.this, "학교 이메일 인증을 해주세요.", Toast.LENGTH_LONG).show();
                     }
@@ -136,6 +135,9 @@ public class SignInActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // 회원가입 성공시
                             Toast.makeText(SignInActivity.this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                            addUser(editTextID.getText().toString(), editTextName.getText().toString(), editTextMajor.getText().toString());
+                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                            startActivity(intent);
                             finish();
                         } else {
                             // 계정이 중복된 경우
