@@ -14,6 +14,8 @@ public class Post {
 
     Boolean postHasPhoto = false;
     Boolean postIsAnonymity = false; // 익명
+    Boolean postIsHot;
+    Boolean postHasReply;
 
     int postLikeCount = 0; // 공감 수
     int postScrapCount = 0; // 스크랩 수
@@ -32,7 +34,8 @@ public class Post {
         this.postLikeCount = 0;
         this.postScrapCount = 0;
         this.postReplyCount = 0;
-        this.postTime = getTime();
+        this.postIsHot = false;
+        this.postHasReply = false;
     }
 
     // 게시글 작성 처리 (이미지 O)
@@ -48,7 +51,8 @@ public class Post {
         this.postLikeCount = 0;
         this.postScrapCount = 0;
         this.postReplyCount = 0;
-        this.postTime = getTime();
+        this.postIsHot = false;
+        this.postHasReply = false;
     }
 
 
@@ -60,6 +64,18 @@ public class Post {
         String getTime = dateFormat.format(date);
 
         return getTime;
+    }
+
+    public Boolean getPostHasReply() {
+        return postHasReply;
+    }
+
+    public Boolean getPostIsHot() {
+        return postIsHot;
+    }
+
+    public String getPostTopic() {
+        return postTopic;
     }
 
     public String getPostContent() {
@@ -94,10 +110,6 @@ public class Post {
         return postLikeCount;
     }
 
-    public String getpostTopic() {
-        return postTopic;
-    }
-
     public int getPostReplyCount() {
         return postReplyCount;
     }
@@ -108,6 +120,14 @@ public class Post {
 
     public int getPostScrapCount() {
         return postScrapCount;
+    }
+
+    public void setPostHasReply(Boolean postHasReply) {
+        this.postHasReply = postHasReply;
+    }
+
+    public void setPostIsHot(Boolean postIsHot) {
+        this.postIsHot = postIsHot;
     }
 
     public void setPostContent(String postContent) {
@@ -138,7 +158,7 @@ public class Post {
         this.postType = postType;
     }
 
-    public void setpostTopic(String postTopic) {
+    public void setPostTopic(String postTopic) {
         this.postTopic = postTopic;
     }
 

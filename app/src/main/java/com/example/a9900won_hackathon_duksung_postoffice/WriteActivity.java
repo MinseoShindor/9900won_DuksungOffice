@@ -57,6 +57,7 @@ public class WriteActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Boolean IsAnonymity = anonymity.isChecked();
 
+                /*
                 databaseReference.child("User").child(firebaseAuth.getUid()).child("name").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -66,6 +67,7 @@ public class WriteActivity extends AppCompatActivity {
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) { }
                 });
+                */
 
                 /*
                 // 이미지 첨부가 됐다면...
@@ -83,7 +85,7 @@ public class WriteActivity extends AppCompatActivity {
                 } else { }
                  */
 
-                writePost(writerName, "분야 -> 스피널로 받아와야 함", write_title_et.getText().toString(), write_context_et.getText().toString(), false,  IsAnonymity);
+                writePost("허희원", "분야 -> 스피널로 받아와야 함", write_title_et.getText().toString(), write_context_et.getText().toString(), false,  IsAnonymity);
             }
         });
     }
