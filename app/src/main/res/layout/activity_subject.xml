@@ -74,18 +74,17 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 >
+
                 <Button
-                    android:id="@+id/b_list_b1"
+                    style="?android:borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="시설"
-                    android:minHeight="0dp"
                     android:minWidth="0dp"
+                    android:minHeight="0dp"
                     android:paddingEnd="30dp"
-                    android:textSize="17sp"
+                    android:text="시설"
                     android:textColor="#787878"
-                    style="?android:borderlessButtonStyle">
-                </Button>
+                    android:textSize="17sp"></Button>
                 <Button
                     android:id="@+id/b_list_b2"
                     android:layout_width="wrap_content"
@@ -578,16 +577,17 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     >
+
                     <Button
+                        android:id="@+id/b_list_b1"
+                        style="?android:borderlessButtonStyle"
                         android:layout_width="170dp"
                         android:layout_height="wrap_content"
-                        android:text="IT미디어공학전공"
-                        android:minHeight="0dp"
                         android:minWidth="0dp"
-                        android:textSize="17sp"
+                        android:minHeight="0dp"
+                        android:text="IT미디어공학전공"
                         android:textColor="#787878"
-                        style="?android:borderlessButtonStyle">
-                    </Button>
+                        android:textSize="17sp"></Button>
                     <Button
                         android:layout_width="170dp"
                         android:layout_height="wrap_content"

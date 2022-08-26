@@ -4,7 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/CookAndroid/Project/9900won_Hackathon_Duksung_PostOffice/app/src/main/res/drawable/ic_angle_right_black.xml" value="0.129" />
+        <entry key="..\:/CookAndroid/Project/9900won_Hackathon_Duksung_PostOffice/app/src/main/res/drawable/ic_check_solid.xml" value="0.1" />
         <entry key="..\:/CookAndroid/Project/9900won_Hackathon_Duksung_PostOffice/app/src/main/res/drawable/ic_circle_user_solid.xml" value="0.1365" />
+        <entry key="..\:/CookAndroid/Project/9900won_Hackathon_Duksung_PostOffice/app/src/main/res/drawable/ic_circle_user_solid_red.xml" value="0.1" />
+        <entry key="..\:/CookAndroid/Project/9900won_Hackathon_Duksung_PostOffice/app/src/main/res/layout/activity_apply.xml" value="0.4" />
         <entry key="..\:/CookAndroid/Project/9900won_Hackathon_Duksung_PostOffice/app/src/main/res/layout/activity_db.xml" value="0.25364583333333335" />
         <entry key="..\:/CookAndroid/Project/9900won_Hackathon_Duksung_PostOffice/app/src/main/res/layout/activity_ex_login.xml" value="0.264" />
         <entry key="..\:/CookAndroid/Project/9900won_Hackathon_Duksung_PostOffice/app/src/main/res/layout/activity_login.xml" value="0.2" />
@@ -14,9 +17,11 @@
         <entry key="..\:/CookAndroid/Project/9900won_Hackathon_Duksung_PostOffice/app/src/main/res/layout/activity_sign_in.xml" value="0.264" />
         <entry key="..\:/CookAndroid/Project/9900won_Hackathon_Duksung_PostOffice/app/src/main/res/layout/activity_splash.xml" value="0.264" />
         <entry key="..\:/CookAndroid/Project/9900won_Hackathon_Duksung_PostOffice/app/src/main/res/layout/activity_sub.xml" value="0.25364583333333335" />
-        <entry key="..\:/CookAndroid/Project/9900won_Hackathon_Duksung_PostOffice/app/src/main/res/layout/activity_subject.xml" value="0.1816123188405797" />
+        <entry key="..\:/CookAndroid/Project/9900won_Hackathon_Duksung_PostOffice/app/src/main/res/layout/activity_subject.xml" value="0.264" />
         <entry key="..\:/CookAndroid/Project/9900won_Hackathon_Duksung_PostOffice/app/src/main/res/layout/activity_write.xml" value="0.264" />
+        <entry key="..\:/CookAndroid/Project/9900won_Hackathon_Duksung_PostOffice/app/src/main/res/layout/list_item.xml" value="0.19927536231884058" />
         <entry key="..\:/CookAndroid/Project/9900won_Hackathon_Duksung_PostOffice/app/src/main/res/layout/main_list_item.xml" value="0.25364583333333335" />
+        <entry key="..\:/CookAndroid/Project/9900won_Hackathon_Duksung_PostOffice/app/src/main/res/layout/reply_list_item.xml" value="0.25364583333333335" />
         <entry key="..\:/CookAndroid/Project/9900won_Hackathon_Duksung_PostOffice/app/src/main/res/layout/subject_list_item.xml" value="0.1703125" />
       </map>
     </option>

@@ -51,14 +51,14 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
         //notification
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        //PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(com.google.android.gms.base.R.drawable.common_google_signin_btn_icon_dark)
                 .setContentTitle(title)
                 .setContentText(content)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setContentIntent(pendingIntent)
+                //.setContentIntent(pendingIntent)
                 .setAutoCancel(true);
 
         Notification notification = builder.build();

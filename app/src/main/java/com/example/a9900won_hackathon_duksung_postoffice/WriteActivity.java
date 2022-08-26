@@ -52,7 +52,7 @@ public class WriteActivity extends AppCompatActivity {
 
     private String writerName; // 게시글 작성자 명
     private String postType; // 분류
-    private String userId;
+    private String userId = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -210,7 +210,12 @@ public class WriteActivity extends AppCompatActivity {
 
                 } else {
                     // 현재 로그인한 User 정보 받아오기
-                    databaseReference.child("User").child("202222").child("name").addValueEventListener(new ValueEventListener() {
+                    if (userId == null) {
+                        Log.d(userId, "값이 안 뜸");
+                    } else {
+
+                    }
+                    databaseReference.child("User").child(userId).child("name").addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             String value = snapshot.getValue(String.class);
@@ -220,7 +225,10 @@ public class WriteActivity extends AppCompatActivity {
                         public void onCancelled(@NonNull DatabaseError error) { }
                     });
 
+                    Toast.makeText(WriteActivity.this, "게시글이 등록되었습니다.",
+                            Toast.LENGTH_SHORT).show();
                     writePost(writerName, userId, postType, write_title_et.getText().toString(), write_context_et.getText().toString(), false,  IsAnonymity);
+                    finish();
                 }
 
                 /*
@@ -257,7 +265,7 @@ public class WriteActivity extends AppCompatActivity {
     private void writePostWithImg (String postWriterName, String postType, String postTitle, String postContent, Boolean postHasPhoto, String postPhotoName, Boolean postIsAnonymity) {
         String value = databaseReference.push().getKey();
         databaseReference.child("Post").push(); // postTopic 자동 생성 함수
-        Post post = new Post (postWriterName, "테스트", postType, postTitle, postContent, postHasPhoto, value, postIsAnonymity);
+        Post post = new Post (postWriterName, userId, postType, postTitle, postContent, postHasPhoto, value, postIsAnonymity);
         databaseReference.child("Post").child(databaseReference.child("Post").getKey()).setValue(post);
     }
 }

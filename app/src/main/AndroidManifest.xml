@@ -21,16 +21,19 @@
             android:name=".SubActivity"
             android:exported="true"></activity>
         <activity
+            android:name=".SubjectActivity"
+            android:exported="true"></activity>
+        <activity
             android:name=".WriteActivity"
             android:exported="false" />
         <activity
             android:name=".MyPage"
             android:exported="false" />
         <activity
-            android:name=".ExLoginActivity"
-            android:exported="true"/>
+            android:name=".ContentInsideActivity"
+            android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ExLoginActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,11 +42,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="true"/> >
 
         <service
             android:name="FirebaseMessagingService"
