@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignInActivity">
+
+    <LinearLayout
+        android:id="@+id/main_topmenu_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:background="#00b4cb"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/main_top_alignment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원가입"
+        android:textSize="20sp"
+        android:fontFamily="@font/nanumsquareroundb"
+        android:textColor="@color/white"
+        android:layout_marginTop="14dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="680dp"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@id/main_topmenu_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID"
+                android:fontFamily="@font/nanumsquareroundb"
+                android:textSize="20sp"
+                android:textColor="@color/black" >
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/editTextID"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:fontFamily="@font/nanumsquareroundr"
+                android:hint="학번을 입력하세요"
+                android:inputType="number"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:fontFamily="@font/nanumsquareroundb"
+                android:textSize="20sp"
+                android:textColor="@color/black" >
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:fontFamily="@font/nanumsquareroundr"
+                android:hint="비밀번호을 입력하세요"
+                android:inputType="textPassword"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이름"
+                android:fontFamily="@font/nanumsquareroundb"
+                android:textSize="20sp"
+                android:textColor="@color/black" >
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/editTextName"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:fontFamily="@font/nanumsquareroundr"
+                android:hint="이름을 입력하세요"
+                android:inputType="text"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="전공"
+                android:fontFamily="@font/nanumsquareroundb"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                >
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/editTextMajor"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:fontFamily="@font/nanumsquareroundr"
+                android:hint="1전공을 입력하세요"
+                android:inputType="text"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="학교 이메일"
+                android:fontFamily="@font/nanumsquareroundb"
+                android:textSize="20sp"
+                android:textColor="@color/black" >
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editTextEmail"
+                    android:layout_width="220sp"
+                    android:layout_height="45sp"
+                    android:fontFamily="@font/nanumsquareroundr"
+                    android:hint="학교 이메일을 입력하세요"
+                    android:inputType="textEmailAddress"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/sendCode_button"
+                    android:layout_width="110sp"
+                    android:layout_height="30sp"
+                    android:layout_marginStart="20sp"
+                    android:background="@drawable/btn_login_blue"
+                    android:fontFamily="@font/nanumsquareroundb"
+                    android:text="인증코드 보내기" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="인증코드"
+                android:fontFamily="@font/nanumsquareroundb"
+                android:textSize="20sp"
+                android:textColor="@color/black" >
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editTextCode"
+                    android:layout_width="220sp"
+                    android:layout_height="45sp"
+                    android:fontFamily="@font/nanumsquareroundr"
+                    android:hint="인증코드를 입력하세요"
+                    android:inputType="textEmailAddress"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/certify_button"
+                    android:layout_width="110sp"
+                    android:layout_height="30sp"
+                    android:layout_marginStart="20sp"
+                    android:background="@drawable/btn_login_blue"
+                    android:fontFamily="@font/nanumsquareroundb"
+                    android:text="인증코드 확인" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/join_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:text="가입하기"
+            android:background="@drawable/et_login_input"
+            android:fontFamily="@font/nanumsquareroundb"
+            android:textSize="17sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/delete"/>
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

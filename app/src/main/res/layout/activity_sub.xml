@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".SubActivity">
+    <LinearLayout
+        android:id="@+id/main_topmenu_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:background="#00b4cb"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/main_background_color"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="635dp"-->
+    <!--        android:background="#ffffff"-->
+    <!--        android:orientation="vertical"-->
+    <!--        android:layout_marginTop="2dp"-->
+    <!--        app:layout_constraintTop_toTopOf="@id/main_underscore_view1"/>-->
+
+    <TextView
+        android:id="@+id/main_top_alignment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="최신 게시물"
+        android:textSize="20sp"
+        android:fontFamily="@font/nanumsquareroundb"
+        android:textColor="@color/white"
+        android:layout_marginTop="14dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/main_subject_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="IT미디어공학전공"
+        android:textSize="18sp"
+        android:fontFamily="@font/nanumsquareroundr"
+        android:textColor="@color/black"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/main_topmenu_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/main_underscore_view1"
+        android:layout_width="390dp"
+        android:layout_height="2px"
+        android:layout_marginTop="8sp"
+        android:background="@color/list_font"
+        app:layout_constraintTop_toBottomOf="@id/main_subject_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="25dp"
+        android:background="@drawable/btn_login_blue"
+        android:text="글쓰기"
+        android:textColor="@color/list_font"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_topmenu_bar"/>
+
+    <LinearLayout
+        android:id="@+id/main_list_alignment_layout"
+        android:layout_width="390sp"
+        android:layout_height="35sp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/main_underscore_view1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <Button
+            android:id="@+id/main_list_alignment_btn1"
+            android:layout_width="120sp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:text="최신순"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/nanumsquareroundr"
+            >
+        </Button>
+
+        <View
+            android:id="@+id/main_vertical_view1"
+            android:layout_width="1dp"
+            android:layout_height="30sp"
+            android:layout_marginTop="2sp"
+            android:background="@color/list_font"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/main_list_alignment_btn2"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:textAlignment="center"
+            android:fontFamily="@font/nanumsquareroundr"
+            android:textColor="@color/black"
+            android:text="공감순">
+
+        </Button>
+
+        <View
+            android:id="@+id/main_vertical_view2"
+            android:layout_width="1sp"
+            android:layout_height="30sp"
+            android:layout_marginTop="2sp"
+            android:background="@color/list_font"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <CheckBox
+            android:layout_width="150sp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:layout_marginStart="10sp"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/nanumsquareroundr"
+            android:text="답변된 글 포함">
+        </CheckBox>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="700sp"
+        app:layout_constraintTop_toBottomOf="@id/main_list_alignment_layout"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="리스트뷰 제목"
+            android:textSize="20sp"
+            android:padding="10sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/nanumsquareroundeb" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="리스트뷰 내용"
+            android:textSize="14sp"
+            android:layout_marginStart="10sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이현민"
+            android:textColor="@color/list_font"
+            android:textSize="13sp"
+            android:paddingStart="10sp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/nanumsquareroundb" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2022-08-23"
+            android:textColor="@color/list_font"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp"
+            android:paddingStart="10sp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/nanumsquareroundb" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:layout_marginTop="3sp"
+            android:background="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="리스트뷰 제목"
+            android:textSize="20sp"
+            android:padding="10sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/nanumsquareroundeb" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="리스트뷰 내용"
+            android:textSize="14sp"
+            android:layout_marginStart="10sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이현민"
+            android:textColor="@color/list_font"
+            android:textSize="13sp"
+            android:paddingStart="10sp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/nanumsquareroundb" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2022-08-23"
+            android:textColor="@color/list_font"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp"
+            android:paddingStart="10sp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/nanumsquareroundb" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:layout_marginTop="3sp"
+            android:background="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="리스트뷰 제목"
+            android:textSize="20sp"
+            android:padding="10sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/nanumsquareroundeb" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="리스트뷰 내용"
+            android:textSize="14sp"
+            android:layout_marginStart="10sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이현민"
+            android:textColor="@color/list_font"
+            android:textSize="13sp"
+            android:paddingStart="10sp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/nanumsquareroundb" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2022-08-23"
+            android:textColor="@color/list_font"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp"
+            android:paddingStart="10sp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/nanumsquareroundb" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:layout_marginTop="3sp"
+            android:background="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="리스트뷰 제목"
+            android:textSize="20sp"
+            android:padding="10sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/nanumsquareroundeb" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="리스트뷰 내용"
+            android:textSize="14sp"
+            android:layout_marginStart="10sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이현민"
+            android:textColor="@color/list_font"
+            android:textSize="13sp"
+            android:paddingStart="10sp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/nanumsquareroundb" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2022-08-23"
+            android:textColor="@color/list_font"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp"
+            android:paddingStart="10sp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/nanumsquareroundb" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:layout_marginTop="3sp"
+            android:background="@color/black" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="리스트뷰 제목"
+            android:textSize="20sp"
+            android:padding="10sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/nanumsquareroundeb" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="리스트뷰 내용"
+            android:textSize="14sp"
+            android:layout_marginStart="10sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이현민"
+            android:textColor="@color/list_font"
+            android:textSize="13sp"
+            android:paddingStart="10sp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/nanumsquareroundb" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2022-08-23"
+            android:textColor="@color/list_font"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp"
+            android:paddingStart="10sp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/nanumsquareroundb" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:layout_marginTop="3sp"
+            android:background="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="리스트뷰 제목"
+            android:textSize="20sp"
+            android:padding="10sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/nanumsquareroundeb" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="리스트뷰 내용"
+            android:textSize="14sp"
+            android:layout_marginStart="10sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이현민"
+            android:textColor="@color/list_font"
+            android:textSize="13sp"
+            android:paddingStart="10sp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/nanumsquareroundb" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2022-08-23"
+            android:textColor="@color/list_font"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp"
+            android:paddingStart="10sp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/nanumsquareroundb" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:layout_marginTop="3sp"
+            android:background="@color/black" />
+
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
